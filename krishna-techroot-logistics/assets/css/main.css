@@ -82,14 +82,23 @@ ul { list-style: none; }
   white-space: nowrap;
 }
 
-.btn-primary {
+.btn-primary,
+a.btn-primary,
+.nav-desktop a.btn-primary,
+.mobile-nav a.btn-primary,
+.hero-actions a.btn-primary {
   background: var(--accent-500);
-  color: white;
+  color: #ffffff !important;
   border-color: var(--accent-500);
 }
-.btn-primary:hover {
+.btn-primary:hover,
+a.btn-primary:hover,
+.nav-desktop a.btn-primary:hover,
+.mobile-nav a.btn-primary:hover,
+.hero-actions a.btn-primary:hover {
   background: var(--accent-600);
   border-color: var(--accent-600);
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(249,115,22,.35);
 }
