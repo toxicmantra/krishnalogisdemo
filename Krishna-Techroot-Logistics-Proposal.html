@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Techroot Logistics — Website Proposal</title>
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-light: #1e293b;
+      --accent: #f97316;
+      --accent-dark: #ea580c;
+      --gold: #fbbf24;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #059669;
+      --phase1: #3b82f6;
+      --phase2: #8b5cf6;
+      --phase3: #10b981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+
+    /* Cover */
+    .cover {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 50%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border: 3px solid rgba(249,115,22,.25);
+      border-radius: 50%;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30%;
+      width: 160px; height: 160px;
+      background: rgba(249,115,22,.08);
+      border-radius: 50%;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background: rgba(249,115,22,.2);
+      border: 1px solid var(--accent);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .cover h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .cover .subtitle {
+      font-size: 18px;
+      color: #94a3b8;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .cover-meta-item {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .cover-meta-item label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .cover-meta-item span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* Content */
+    .content { padding: 40px 48px; }
+
+    .section { margin-bottom: 40px; }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    .section-desc {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 20px 0 10px;
+    }
+
+    p { margin-bottom: 12px; }
+
+    /* Info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .info-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .info-card label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .info-card span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    tbody td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #fff7ed; }
+
+    /* Phase blocks */
+    .phase-block {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .phase-header {
+      padding: 18px 22px;
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .phase-header.p1 { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+    .phase-header.p2 { background: linear-gradient(90deg, #6d28d9, #8b5cf6); }
+    .phase-header.p3 { background: linear-gradient(90deg, #047857, #10b981); }
+
+    .phase-header h3 {
+      color: var(--white);
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .phase-header .phase-tag {
+      font-size: 11px;
+      background: rgba(255,255,255,.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .phase-body { padding: 22px; }
+
+    .phase-body ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .phase-body ul li {
+      padding: 7px 0 7px 24px;
+      position: relative;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+    }
+
+    .phase-body ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .phase-body ul.exclude li::before {
+      content: '✗';
+      color: #ef4444;
+    }
+
+    /* Costing */
+    .cost-table thead th:last-child,
+    .cost-table tbody td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .cost-total {
+      background: var(--navy) !important;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .cost-total td { border: none; padding: 14px; }
+
+    .price-highlight {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .price-highlight .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .price-highlight .amount {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .price-highlight .amount span {
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .price-highlight .note {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .package-card {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      text-align: center;
+      transition: border-color .2s;
+    }
+
+    .package-card.featured {
+      border-color: var(--accent);
+      background: #fffbf5;
+      position: relative;
+    }
+
+    .package-card.featured::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -11px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 12px;
+      border-radius: 10px;
+    }
+
+    .package-card h4 {
+      font-size: 14px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .package-card .price {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .package-card .price small {
+      font-size: 14px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .package-card p {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .package-card ul {
+      list-style: none;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .package-card ul li {
+      padding: 5px 0 5px 18px;
+      position: relative;
+      color: var(--text);
+    }
+
+    .package-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 4px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 2px;
+    }
+
+    .tag-blue { background: #dbeafe; color: #1d4ed8; }
+    .tag-orange { background: #ffedd5; color: #c2410c; }
+    .tag-green { background: #d1fae5; color: #047857; }
+    .tag-red { background: #fee2e2; color: #b91c1c; }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      margin: 16px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 4px; bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding-left: 8px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-item h4 {
+      font-size: 14px;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .timeline-item p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* Design preview */
+    .design-preview {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 28px;
+      color: var(--white);
+      margin: 16px 0;
+    }
+
+    .design-preview h4 {
+      color: var(--gold);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .design-preview .mock-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .design-preview .mock-nav .logo {
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .design-preview .mock-hero h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .design-preview .mock-hero p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+
+    .mock-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .mock-btn {
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mock-btn.primary { background: var(--accent); color: white; }
+    .mock-btn.secondary { border: 1px solid rgba(255,255,255,.3); color: white; }
+
+    .mock-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .mock-stat {
+      background: rgba(255,255,255,.06);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .mock-stat .num {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .mock-stat .lbl {
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+
+    /* Notes */
+    .note-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--gold);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .note-box strong { color: #92400e; }
+
+    .warning-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .proposal-footer {
+      background: var(--navy);
+      color: #94a3b8;
+      padding: 28px 48px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .proposal-footer strong { color: var(--white); }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; }
+      .phase-block { break-inside: avoid; }
+    }
+
+    @media (max-width: 700px) {
+      .cover, .content, .proposal-footer { padding: 28px 24px; }
+      .cover-meta, .info-grid, .package-grid, .mock-stats { grid-template-columns: 1fr; }
+      .cover h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- COVER -->
+    <div class="cover">
+      <div class="cover-badge">Website Development Proposal</div>
+      <h1>Krishna Techroot Logistics</h1>
+      <p class="subtitle">Modern Professional Website — 3-Phase Plan &amp; Costing</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <label>Prepared For</label>
+          <span>KRISHNA TECH ROUTE LOGISTICS PVT. LTD.</span>
+        </div>
+        <div class="cover-meta-item">
+          <label>Proposal Date</label>
+          <span>July 2026</span>
+        </div>
+        <div class="cover-meta-item">
+          <label>Project Type</label>
+          <span>Corporate Logistics Website</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- EXECUTIVE SUMMARY -->
+      <div class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <p class="section-desc">Project overview aur deliverables ka short summary</p>
+        <p>
+          <strong>Krishna Techroot Logistics</strong> (legally registered as <em>KRISHNA TECH ROUTE LOGISTICS PRIVATE LIMITED</em>)
+          ek pan-India surface transport company hai jo primarily <strong>textile, fabric, machinery aur general cargo</strong>
+          transport karti hai — with strong operations across <strong>Rajasthan, Maharashtra, Tamil Nadu aur Gujarat</strong>.
+        </p>
+        <p>
+          Company ka abhi tak apna <strong>professional website nahi bana</strong>. Internet par jo information available hai
+          (MCA records, third-party listings) woh reference ke liye hai — humein client ke liye
+          <strong>ek naya, modern, premium-quality website</strong> banana hai jo top logistics companies jaisa professional lage.
+        </p>
+        <p>
+          Yeh proposal <strong>3 phases</strong> mein project ko define karta hai — taaki client step-by-step decide kar sake
+          kya abhi karna hai aur kya baad mein.
+        </p>
+
+        <div class="note-box">
+          <strong>Important:</strong> Website par company ka <strong>revenue, turnover ya koi financial figure show nahi hoga</strong>.
+          Sirf services, offices, coverage, team strength aur trust-building content dikhega.
+        </div>
+      </div>
+
+      <!-- COMPANY PROFILE -->
+      <div class="section">
+        <h2 class="section-title">Company Profile (Gathered Info)</h2>
+        <p class="section-desc">Client se aur public records se collect ki gayi information</p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <label>Brand Name</label>
+            <span>Krishna Techroot Logistics</span>
+          </div>
+          <div class="info-card">
+            <label>Legal Name</label>
+            <span>KRISHNA TECH ROUTE LOGISTICS PRIVATE LIMITED</span>
+          </div>
+          <div class="info-card">
+            <label>CIN</label>
+            <span>U60210RJ2022PTC083532</span>
+          </div>
+          <div class="info-card">
+            <label>Incorporated</label>
+            <span>September 2022 — Jaipur, Rajasthan</span>
+          </div>
+          <div class="info-card">
+            <label>Team Size</label>
+            <span>~25 Staff Members</span>
+          </div>
+          <div class="info-card">
+            <label>Customer Base</label>
+            <span>600 – 700 Clients (B2B + B2C)</span>
+          </div>
+          <div class="info-card">
+            <label>Operations Hub</label>
+            <span>Diggi Road, Sanganer, Rajasthan</span>
+          </div>
+          <div class="info-card">
+            <label>Registered Office</label>
+            <span>Omega Muhana, Sanganer, Jaipur – 302029</span>
+          </div>
+        </div>
+
+        <h3>Core Services</h3>
+        <p>
+          <span class="tag tag-blue">Full Truck Load (FTL)</span>
+          <span class="tag tag-blue">Part Truck Load / Parcel</span>
+          <span class="tag tag-blue">ODC — 100 to 150 Tonne</span>
+          <span class="tag tag-blue">Door-to-Door Delivery</span>
+          <span class="tag tag-orange">Textile / Grey Cloth (TN → RJ)</span>
+          <span class="tag tag-orange">Machinery &amp; General Cargo</span>
+        </p>
+
+        <h3>Geographic Coverage</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Priority State</th>
+              <th>Role</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Rajasthan</strong></td>
+              <td>Primary Hub</td>
+              <td>Sanganer operations, Diggi Road factory, registered office</td>
+            </tr>
+            <tr>
+              <td><strong>Tamil Nadu</strong></td>
+              <td>Origin Market</td>
+              <td>Grey cloth &amp; textile imports — major cargo source</td>
+            </tr>
+            <tr>
+              <td><strong>Gujarat</strong></td>
+              <td>Corporate / Network</td>
+              <td>Ahmedabad office (SG Highway) — to be confirmed</td>
+            </tr>
+            <tr>
+              <td><strong>Maharashtra</strong></td>
+              <td>Network Coverage</td>
+              <td>Pan-India route coverage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DESIGN VISION -->
+      <div class="section">
+        <h2 class="section-title">Design Vision — "Premium Logistics Look"</h2>
+        <p class="section-desc">Website ka look &amp; feel — modern, professional, trust-building</p>
+
+        <div class="design-preview">
+          <h4>Homepage Preview Concept</h4>
+          <div class="mock-nav">
+            <span class="logo">KRISHNA TECHROOT LOGISTICS</span>
+            <span>Home · Services · Network · About · Contact</span>
+          </div>
+          <div class="mock-hero">
+            <h2>Pan India Surface Transport<br>— Rajasthan to Tamil Nadu &amp; Beyond</h2>
+            <p>FTL · Part Load · ODC Heavy Cargo · Door-to-Door · Textile Specialist</p>
+            <div class="mock-btns">
+              <span class="mock-btn primary">Get a Quote</span>
+              <span class="mock-btn secondary">Our Services</span>
+            </div>
+          </div>
+          <div class="mock-stats">
+            <div class="mock-stat"><div class="num">700+</div><div class="lbl">Customers</div></div>
+            <div class="mock-stat"><div class="num">25+</div><div class="lbl">Team</div></div>
+            <div class="mock-stat"><div class="num">50kg</div><div class="lbl">Min Load</div></div>
+            <div class="mock-stat"><div class="num">150T</div><div class="lbl">ODC Capacity</div></div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Design Element</th>
+              <th>Approach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Color Palette</td><td>Deep Navy + Bold Orange/Gold accent — industry-standard logistics trust colors</td></tr>
+            <tr><td>Typography</td><td>Modern sans-serif (Inter / Plus Jakarta Sans) — clean, readable</td></tr>
+            <tr><td>Layout</td><td>Full-width hero, card-based services, alternating light/dark sections</td></tr>
+            <tr><td>Imagery</td><td>Trucks, highways, warehouses, textile cargo — real photos preferred, premium stock as fallback</td></tr>
+            <tr><td>Animations</td><td>Subtle scroll animations, counter-up stats, smooth hover effects</td></tr>
+            <tr><td>Mobile</td><td>Mobile-first responsive — logistics clients browse on phone</td></tr>
+            <tr><td>Trust Elements</td><td>CIN, legal name, years in business, customer count — <strong>no revenue figures</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- WEBSITE PAGES -->
+      <div class="section">
+        <h2 class="section-title">Website Pages — Phase 1</h2>
+        <p class="section-desc">Phase 1 mein banne wale pages aur unka content</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>Purpose</th>
+              <th>Key Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Home</strong></td>
+              <td>First impression + overview</td>
+              <td>Hero, services summary, stats (customers/team/capacity), coverage map, why choose us, CTA</td>
+            </tr>
+            <tr>
+              <td><strong>Services</strong></td>
+              <td>Detail what they do</td>
+              <td>FTL, PTL/Parcel, ODC, Door-to-Door, Textile specialist, value-added services</td>
+            </tr>
+            <tr>
+              <td><strong>Network / Coverage</strong></td>
+              <td>Where they operate</td>
+              <td>India map, 4 priority states, TN→RJ textile corridor highlight, pin code coverage</td>
+            </tr>
+            <tr>
+              <td><strong>About Us</strong></td>
+              <td>Company story &amp; trust</td>
+              <td>Since 2022, mission/vision, team of 25, B2B+B2C model, industry focus</td>
+            </tr>
+            <tr>
+              <td><strong>Contact Us</strong></td>
+              <td>How to reach them</td>
+              <td>Office addresses, phone numbers, email, Google Maps embed, office hours</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning-box">
+          <strong>Will NOT include on website:</strong> Revenue, turnover, profit, MCA financial data,
+          fake placeholder content (0+ stats, Lorem ipsum testimonials), or any unverified claims.
+        </div>
+      </div>
+
+      <!-- 3 PHASES -->
+      <div class="section">
+        <h2 class="section-title">3-Phase Project Plan</h2>
+        <p class="section-desc">Step-by-step delivery plan — client decide kare kahan tak abhi jana hai</p>
+
+        <!-- PHASE 1 -->
+        <div class="phase-block">
+          <div class="phase-header p1">
+            <h3>Phase 1 — Website Design &amp; Development</h3>
+            <span class="phase-tag">Immediate · Core Deliverable</span>
+          </div>
+          <div class="phase-body">
+            <p><strong>Goal:</strong> Ek modern, professional, premium logistics website banana —
+            jo dekh ke client ko trust aaye aur company ka kaam clearly samjhe.</p>
+
+            <h3>Included ✓</h3>
+            <ul>
+              <li>UI/UX Design — modern logistics industry standard</li>
+              <li>5 Pages: Home, Services, Network/Coverage, About Us, Contact Us</li>
+              <li>Fully responsive — mobile, tablet, desktop</li>
+              <li>Company services detail — FTL, PTL, ODC, Door-to-Door, Textile</li>
+              <li>Office locations &amp; addresses with Google Maps</li>
+              <li>Pan-India coverage section — RJ, MH, TN, GJ highlighted</li>
+              <li>Trust section — 700+ customers, 25 staff, min 50kg, ODC 150T capacity</li>
+              <li>Legal footer — CIN, registered company name, est. 2022</li>
+              <li>Basic SEO setup — meta titles, descriptions, page structure</li>
+              <li>Fast-loading, clean HTML/CSS/JS codebase</li>
+              <li>1 round of revisions after first delivery</li>
+            </ul>
+
+            <h3>Not Included ✗</h3>
+            <ul class="exclude">
+              <li>Revenue / financial figures anywhere on site</li>
+              <li>WhatsApp / email form backend integrations</li>
+              <li>Hosting or domain purchase</li>
+              <li>Live deployment to server</li>
+              <li>Track shipment / customer login portal</li>
+              <li>Content Management System (CMS) — static site in Phase 1</li>
+            </ul>
+
+            <p><strong>Deliverable:</strong> Complete website files (HTML/CSS/JS) ready for deployment.</p>
+            <p><strong>Estimated Timeline:</strong> 10 – 14 working days after content &amp; assets received.</p>
+          </div>
+        </div>
+
+        <!-- PHASE 2 -->
+        <div class="phase-block">
+          <div class="phase-header p2">
+            <h3>Phase 2 — Hosting, Domain &amp; Deployment</h3>
+            <span class="phase-tag">After Phase 1 · Engineer Coordination</span>
+          </div>
+          <div class="phase-body">
+            <p><strong>Goal:</strong> Website ko live karna — client ke software engineer ke saath coordinate karke
+            hosting, domain aur deployment setup karna.</p>
+
+            <h3>Included ✓</h3>
+            <ul>
+              <li>Coordination with client's software engineer for hosting requirements</li>
+              <li>Domain configuration (e.g. techroute.co.in or new domain)</li>
+              <li>SSL certificate setup (HTTPS)</li>
+              <li>Website deployment to client's server / hosting</li>
+              <li>DNS configuration assistance</li>
+              <li>Post-deployment testing — all pages, mobile, speed check</li>
+              <li>Basic handover documentation</li>
+            </ul>
+
+            <h3>Not Included ✗</h3>
+            <ul class="exclude">
+              <li>Hosting plan cost (client bears hosting charges)</li>
+              <li>Domain registration cost (client bears domain charges)</li>
+              <li>Ongoing server maintenance (separate AMC if needed)</li>
+            </ul>
+
+            <div class="note-box">
+              <strong>Note:</strong> Phase 2 tab start hoga jab client ka software engineer contact kare
+              aur hosting details share kare (server type, credentials, domain preference).
+            </div>
+
+            <p><strong>Deliverable:</strong> Live website accessible on client's domain with HTTPS.</p>
+            <p><strong>Estimated Timeline:</strong> 3 – 5 working days after hosting details received.</p>
+          </div>
+        </div>
+
+        <!-- PHASE 3 -->
+        <div class="phase-block">
+          <div class="phase-header p3">
+            <h3>Phase 3 — Integrations &amp; Outreach Features</h3>
+            <span class="phase-tag">Future · After Go-Live</span>
+          </div>
+          <div class="phase-body">
+            <p><strong>Goal:</strong> Website se directly customer reach-out enable karna —
+            WhatsApp, email, quote forms aur advanced features.</p>
+
+            <h3>Included ✓</h3>
+            <ul>
+              <li>WhatsApp click-to-chat button (floating + page CTAs)</li>
+              <li>Contact form → email delivery integration</li>
+              <li>"Get a Quote" form — From, To, Weight, Cargo Type, Phone</li>
+              <li>Form submissions sent to client's email</li>
+              <li>Click-to-call buttons on mobile</li>
+              <li>Google Analytics setup (visitor tracking)</li>
+              <li>Branch Locator — interactive state/city filter (if data provided)</li>
+            </ul>
+
+            <h3>Optional Add-ons (Phase 3+)</h3>
+            <ul>
+              <li>Shipment tracking page (requires backend API from client)</li>
+              <li>Customer login portal</li>
+              <li>CMS — client khud content update kare</li>
+              <li>Multi-language (Hindi + English)</li>
+              <li>Live chat integration</li>
+            </ul>
+
+            <p><strong>Deliverable:</strong> Fully interactive website with outreach integrations live.</p>
+            <p><strong>Estimated Timeline:</strong> 7 – 10 working days after Phase 2 go-live.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECH STACK -->
+      <div class="section">
+        <h2 class="section-title">Technology Stack</h2>
+        <table>
+          <thead>
+            <tr><th>Layer</th><th>Technology</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Markup</td><td>HTML5</td><td>Clean, semantic, SEO-friendly structure</td></tr>
+            <tr><td>Styling</td><td>CSS3 / Tailwind CSS</td><td>Modern responsive design, fast development</td></tr>
+            <tr><td>Interactivity</td><td>JavaScript (Vanilla / lightweight)</td><td>Animations, form handling — no heavy frameworks needed in Phase 1</td></tr>
+            <tr><td>Icons</td><td>Lucide / Custom SVG</td><td>Crisp, professional iconography</td></tr>
+            <tr><td>Fonts</td><td>Google Fonts (Inter)</td><td>Modern, free, fast CDN delivery</td></tr>
+            <tr><td>Phase 3 Backend</td><td>Formspree / EmailJS / custom API</td><td>Form-to-email without complex server setup</td></tr>
+            <tr><td>Hosting (Phase 2)</td><td>As per client's engineer</td><td>Flexible — Netlify, Vercel, shared hosting, VPS — whatever client prefers</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="section">
+        <h2 class="section-title">Project Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Week 1–2 — Phase 1: Design &amp; Build</h4>
+            <p>Content collection → UI design → page development → internal review → 1 revision round → delivery</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Week 3 — Phase 2: Deploy (when engineer ready)</h4>
+            <p>Hosting coordination → domain/SSL setup → deployment → testing → go-live</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Week 4–5 — Phase 3: Integrations</h4>
+            <p>WhatsApp + email forms → quote form → analytics → branch locator → final testing</p>
+          </div>
+        </div>
+        <div class="note-box">
+          <strong>Note:</strong> Timeline client se content (logo, photos, phone numbers, confirmed addresses) milne ke baad start hogi.
+          Delays in content delivery will extend timeline accordingly.
+        </div>
+      </div>
+
+      <!-- COSTING -->
+      <div class="section">
+        <h2 class="section-title">Costing &amp; Pricing</h2>
+        <p class="section-desc">Phase-wise breakdown — Indian market rates, all prices in INR</p>
+
+        <h3>Phase 1 — Detailed Breakdown</h3>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Description</th>
+              <th>Cost (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UI/UX Design</td>
+              <td>Homepage + 4 inner pages design, mobile layouts, color system, typography</td>
+              <td>₹12,000</td>
+            </tr>
+            <tr>
+              <td>Frontend Development</td>
+              <td>5 responsive pages, animations, interactive elements, cross-browser testing</td>
+              <td>₹18,000</td>
+            </tr>
+            <tr>
+              <td>Content Structuring</td>
+              <td>Services, coverage, about, contact content organization from gathered data</td>
+              <td>₹3,000</td>
+            </tr>
+            <tr>
+              <td>Basic SEO Setup</td>
+              <td>Meta tags, page titles, descriptions, semantic HTML structure</td>
+              <td>₹2,000</td>
+            </tr>
+            <tr>
+              <td>Revisions (1 Round)</td>
+              <td>Design/content changes after first delivery</td>
+              <td>Included</td>
+            </tr>
+            <tr class="cost-total">
+              <td colspan="2"><strong>Phase 1 Total</strong></td>
+              <td><strong>₹35,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Phase 2 — Detailed Breakdown</h3>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Description</th>
+              <th>Cost (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Deployment &amp; Setup</td>
+              <td>Server deployment, file upload, environment configuration</td>
+              <td>₹5,000</td>
+            </tr>
+            <tr>
+              <td>Domain &amp; DNS Configuration</td>
+              <td>DNS records, domain pointing, subdomain setup if needed</td>
+              <td>₹2,000</td>
+            </tr>
+            <tr>
+              <td>SSL Certificate Setup</td>
+              <td>HTTPS enable, certificate installation &amp; verification</td>
+              <td>₹1,500</td>
+            </tr>
+            <tr>
+              <td>Post-Deploy Testing</td>
+              <td>All pages, mobile, speed, cross-browser verification on live server</td>
+              <td>₹1,500</td>
+            </tr>
+            <tr>
+              <td>Handover Documentation</td>
+              <td>Basic docs for client's engineer — file structure, update guide</td>
+              <td>Included</td>
+            </tr>
+            <tr class="cost-total">
+              <td colspan="2"><strong>Phase 2 Total</strong></td>
+              <td><strong>₹10,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <strong>Client bears separately:</strong> Domain registration (~₹800–1,200/year) aur hosting plan
+          (~₹2,000–6,000/year depending on provider). Yeh Phase 2 costing mein included nahi hai.
+        </div>
+
+        <h3>Phase 3 — Detailed Breakdown</h3>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Description</th>
+              <th>Cost (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>WhatsApp Integration</td>
+              <td>Floating button + CTA links with pre-filled message</td>
+              <td>₹2,000</td>
+            </tr>
+            <tr>
+              <td>Contact Form → Email</td>
+              <td>Working contact form with email delivery (Formspree/EmailJS)</td>
+              <td>₹3,000</td>
+            </tr>
+            <tr>
+              <td>Get a Quote Form</td>
+              <td>Detailed quote form — route, weight, cargo type, phone → email</td>
+              <td>₹4,000</td>
+            </tr>
+            <tr>
+              <td>Click-to-Call (Mobile)</td>
+              <td>Phone number tap-to-call across all pages</td>
+              <td>₹1,000</td>
+            </tr>
+            <tr>
+              <td>Google Analytics</td>
+              <td>Visitor tracking setup &amp; basic dashboard access</td>
+              <td>₹1,500</td>
+            </tr>
+            <tr>
+              <td>Branch Locator</td>
+              <td>Interactive state/city office filter (if branch data provided)</td>
+              <td>₹3,500</td>
+            </tr>
+            <tr class="cost-total">
+              <td colspan="2"><strong>Phase 3 Total</strong></td>
+              <td><strong>₹15,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- PACKAGE OPTIONS -->
+        <h3>Package Options</h3>
+        <div class="package-grid">
+          <div class="package-card">
+            <h4>Starter</h4>
+            <div class="price">₹35,000</div>
+            <p>Phase 1 only</p>
+            <ul>
+              <li>5-page modern website</li>
+              <li>Responsive design</li>
+              <li>Basic SEO</li>
+              <li>1 revision round</li>
+              <li>Files delivered — client deploys</li>
+            </ul>
+          </div>
+          <div class="package-card featured">
+            <h4>Professional</h4>
+            <div class="price">₹45,000</div>
+            <p>Phase 1 + Phase 2</p>
+            <ul>
+              <li>Everything in Starter</li>
+              <li>Live deployment</li>
+              <li>Domain &amp; SSL setup</li>
+              <li>Engineer coordination</li>
+              <li>Post-deploy testing</li>
+            </ul>
+          </div>
+          <div class="package-card">
+            <h4>Complete</h4>
+            <div class="price">₹60,000</div>
+            <p>All 3 Phases</p>
+            <ul>
+              <li>Everything in Professional</li>
+              <li>WhatsApp integration</li>
+              <li>Email &amp; quote forms</li>
+              <li>Google Analytics</li>
+              <li>Branch locator</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-highlight">
+          <div class="label">Complete Project (All 3 Phases)</div>
+          <div class="amount"><span>₹</span>60,000</div>
+          <div class="note">
+            Phase 1 (₹35,000) + Phase 2 (₹10,000) + Phase 3 (₹15,000)<br>
+            GST extra as applicable · Payment: 50% advance, 50% on delivery
+          </div>
+        </div>
+
+        <h3>Optional Add-ons (Post Phase 3)</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Add-on</th><th>Description</th><th>Cost (INR)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CMS Integration</td><td>Client khud content update kare (WordPress/headless CMS)</td><td>₹15,000 – ₹25,000</td></tr>
+            <tr><td>Shipment Tracking Page</td><td>Live tracking interface (requires client API)</td><td>₹20,000 – ₹35,000</td></tr>
+            <tr><td>Hindi + English</td><td>Multi-language toggle across all pages</td><td>₹8,000 – ₹12,000</td></tr>
+            <tr><td>Annual Maintenance (AMC)</td><td>Updates, bug fixes, minor content changes — per year</td><td>₹6,000 – ₹10,000/year</td></tr>
+            <tr><td>Extra Revision Rounds</td><td>Additional design/content change rounds beyond included</td><td>₹3,000/round</td></tr>
+            <tr><td>Logo Design</td><td>Professional logo if client doesn't have one</td><td>₹5,000 – ₹8,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- WHAT WE NEED -->
+      <div class="section">
+        <h2 class="section-title">What We Need From Client</h2>
+        <p class="section-desc">Project start karne ke liye yeh cheezein chahiye</p>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Priority</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Logo (PNG/SVG)</td><td><span class="tag tag-red">High</span></td><td>Pending</td></tr>
+            <tr><td>Brand name confirmation (Techroot vs Tech Route)</td><td><span class="tag tag-red">High</span></td><td>Pending</td></tr>
+            <tr><td>Office addresses — kaunsi website par dikhani hain</td><td><span class="tag tag-red">High</span></td><td>Pending</td></tr>
+            <tr><td>Phone numbers (call &amp; WhatsApp)</td><td><span class="tag tag-red">High</span></td><td>Pending</td></tr>
+            <tr><td>Email address for contact page</td><td><span class="tag tag-orange">Medium</span></td><td>Pending</td></tr>
+            <tr><td>Photos — trucks, warehouse, team</td><td><span class="tag tag-orange">Medium</span></td><td>Pending (stock fallback available)</td></tr>
+            <tr><td>Domain preference (existing or new)</td><td><span class="tag tag-green">Phase 2</span></td><td>Pending</td></tr>
+            <tr><td>Software engineer contact (hosting)</td><td><span class="tag tag-green">Phase 2</span></td><td>Pending</td></tr>
+            <tr><td>Branch/city list for locator</td><td><span class="tag tag-green">Phase 3</span></td><td>Pending</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PAYMENT TERMS -->
+      <div class="section">
+        <h2 class="section-title">Payment Terms</h2>
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Advance</th><th>On Delivery</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Phase 1</td><td>₹17,500 (50%)</td><td>₹17,500 (50%)</td><td>₹35,000</td></tr>
+            <tr><td>Phase 2</td><td>₹5,000 (50%)</td><td>₹5,000 (50%)</td><td>₹10,000</td></tr>
+            <tr><td>Phase 3</td><td>₹7,500 (50%)</td><td>₹7,500 (50%)</td><td>₹15,000</td></tr>
+            <tr class="cost-total">
+              <td><strong>Grand Total</strong></td>
+              <td><strong>₹30,000</strong></td>
+              <td><strong>₹30,000</strong></td>
+              <td><strong>₹60,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-box">
+          <strong>Payment:</strong> UPI / Bank Transfer · GST @ 18% extra if applicable ·
+          Invoice provided on request · Each phase billed independently — client can stop after any phase.
+        </div>
+      </div>
+
+      <!-- NEXT STEPS -->
+      <div class="section">
+        <h2 class="section-title">Next Steps</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Step 1 — Client Reviews This Proposal</h4>
+            <p>Decide which package: Starter (Phase 1) / Professional (Phase 1+2) / Complete (All 3)</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Step 2 — Share Assets</h4>
+            <p>Logo, phone numbers, confirmed addresses, photos (if available)</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Step 3 — Advance Payment &amp; Kick-off</h4>
+            <p>50% advance → design &amp; development begins</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Step 4 — Review &amp; Delivery</h4>
+            <p>First draft shared → 1 revision round → final delivery → balance payment</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="proposal-footer">
+      <div>
+        <strong>Krishna Techroot Logistics</strong><br>
+        Website Development Proposal · July 2026
+      </div>
+      <div style="text-align: right;">
+        <strong>3 Phases · 5 Pages · Modern Design</strong><br>
+        Starting from ₹35,000 · Complete package ₹60,000
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
